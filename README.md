@@ -6,7 +6,7 @@
 
 A high-performance, aesthetically driven professional portfolio engineered to showcase the intersection of **Electrical Engineering** and **Software Development**. This site serves as a central hub for my technical projects, academic research, and engineering toolkit.
 
-**[Launch Live Portfolio 🚀](https://robel1229.github.io/PersonalPortfolio/)**
+**[Launch Live Portfolio 🚀](https://aychew1229.github.io/PersonalPortfolio/)**
 
 ---
 
