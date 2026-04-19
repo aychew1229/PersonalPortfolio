@@ -956,19 +956,14 @@
     toast.classList.remove('show');
   }, 4000);
 }
-
-    // Register Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service Worker Registered'))
-      .catch(err => console.log('Registration Failed', err));
-  });
-}
-
-  
-
+    
   </script>
+      // Register Service Worker
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGZ1bmN0aW9uKGV2ZW50KSB7IH0pOw==');
+  }
+</script>
   <div id="toast" class="toast-msg">
   <span class="toast-accent">//NOTICE:</span> 
   <span class="toast-content">Default message text.</span>
