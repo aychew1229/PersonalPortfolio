@@ -1,4 +1,4 @@
-# ⚡ Personal Portfolio: Aman Misganew
+# ⚡ Personal Portfolio: Aychew Misganew
 
 ![Status](https://img.shields.io/badge/Status-Live-00e5a0?style=for-the-badge) 
 ![Version](https://img.shields.io/badge/Version-1.0.0-7c6bff?style=for-the-badge)
