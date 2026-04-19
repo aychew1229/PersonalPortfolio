@@ -965,11 +965,10 @@
 </div>
 
 <script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("Service Worker Registered"))
-      .catch(err => console.log(err));
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGZ1bmN0aW9uKGV2ZW50KSB7IH0pOw==');
   }
 </script>
+
 </body>
 </html>
