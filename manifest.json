@@ -1,7 +1,6 @@
 {
   "short_name": "Aychew",
   "name": "Aychew Portfolio",
-  "description": "Electrical & Computer Engineering Portfolio",
   "icons": [
     {
       "src": "profile1.jpg",
@@ -10,8 +9,9 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
+  "start_url": "index.html",
   "background_color": "#0a0a0f",
+  "display": "standalone",
+  "scope": "./",
   "theme_color": "#00e5a0"
 }
