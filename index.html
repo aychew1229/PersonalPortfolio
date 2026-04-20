@@ -135,8 +135,12 @@
       display: flex;
       align-items: center;
       padding: 4rem 5% 2rem;
+      text-align: center;
     }
-    .hero-inner { max-width: 900px; }
+    .hero-inner { max-width: 1200px; 
+                 text-align: center; 
+                 align-items: center;
+    }
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -242,7 +246,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: center;
-      max-width: 1100px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     @media (max-width: 768px) { #about { grid-template-columns: 1fr; gap: 3rem; } }
@@ -319,7 +323,7 @@
     .about-badge strong { display: block; color: var(--accent); font-family: 'Syne', sans-serif; font-size: 1rem; }
 
     /* ─── SKILLS ─── */
-    #skills { padding: 7rem 5%; max-width: 1100px; margin: 0 auto; }
+    #skills { padding: 7rem 5%; max-width: 1400px; margin: 0 auto; }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -373,7 +377,7 @@
     }
 
     /* ─── PROJECTS ─── */
-    #projects { padding: 7rem 5%; max-width: 1100px; margin: 0 auto; }
+    #projects { padding: 7rem 5%; max-width: 1400px; margin: 0 auto; }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -441,7 +445,7 @@
     /* ─── CONTACT ─── */
     #contact {
       padding: 7rem 5%;
-      max-width: 700px;
+      max-width: 900px;
       margin: 0 auto;
       text-align: center;
     }
@@ -506,7 +510,7 @@
 
     /* ─── DIVIDER ─── */
     .section-divider {
-      max-width: 1100px;
+      max-width: 1400px;
       margin: 0 auto;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--border), transparent);
