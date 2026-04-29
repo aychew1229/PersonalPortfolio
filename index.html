@@ -127,7 +127,9 @@
     }
 
     /* ─── SECTIONS ─── */
-    section { position: relative; z-index: 1; padding: 3rem 5%; }
+    section { position: relative; z-index: 1; padding: 3rem 5%; 
+             scroll-margin-top: 80px;
+            }
 
     /* ─── HERO ─── */
     #hero {
@@ -137,10 +139,12 @@
       padding: 4rem 5% 2rem;
       text-align: center;
       justify-content: center;
+      padding-top: 8rem;
     }
     .hero-inner { max-width: 1400px; 
                  text-align: center; 
                  align-items: center;
+                 margin: 0 auto;
     }
     .hero-tag {
       display: inline-flex;
@@ -252,7 +256,10 @@
       max-width: 1500px;
       margin: 0 auto;
     }
-    @media (max-width: 768px) { #about { grid-template-columns: 1fr; gap: 3rem; } }
+    @media (max-width: 768px) { 
+      #about { grid-template-columns: 1fr; gap: 3rem; } 
+      #hero {padding-top: 6rem;}
+    }
     .section-label {
       font-size: 0.7rem;
       letter-spacing: 0.15em;
