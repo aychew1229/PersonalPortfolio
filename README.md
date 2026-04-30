@@ -5,10 +5,10 @@
 ![Platform](https://img.shields.io/badge/Platform-Web-orange?style=for-the-badge)
 
 A high-performance, aesthetically driven professional portfolio engineered to showcase the intersection of **Electrical Engineering** and **Software Development**. This site serves as a central hub for my technical projects, academic research, and engineering toolkit.
-*
+##
 #aychew Misganew, #Aychew1229 , #aychew Misganew personal Portfolio ,@aychew Misganew,
 #Aman Misganew
-*
+##
 
 **[Launch Live Portfolio 🚀](https://aychew1229.github.io/PersonalPortfolio/)**
 
