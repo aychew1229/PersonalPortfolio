@@ -1179,6 +1179,78 @@
         </div>
       </div>
 
+        <div class="cert-card reveal">
+        <div class="cert-banner" onclick="openLightbox('cert-ai-img','HTML, CSS, JavaScript, React','Udemy · Aug 23, 2024','https://www.udemy.com/certificate/UC-550b2316-6aa8-4d42-bcc6-af7d7f1f1318/')">
+          <img src="Online Certification Course.jpg" alt="Online Certification Course"
+               onerror="this.parentElement.classList.add('no-img'); this.style.display='none'; this.parentElement.innerHTML += '🤖';">
+          <span class="zoom-hint">View Full</span>
+          <span class="cert-issuer-badge">Udemy</span>
+        </div>
+        <div class="cert-body">
+          <div class="cert-category">Degree Program</div>
+          <div class="cert-title">HTML, CSS, JavaScript, React</div>
+          <div class="cert-meta">Awarded August 23, 2024</div>
+          <div class="cert-footer">
+            <a href="https://www.udemy.com/certificate/UC-550b2316-6aa8-4d42-bcc6-af7d7f1f1318/" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+            <span class="cert-verified-chip">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-banner" onclick="openLightbox('cert-ai-img','Canva Masterclass: Social Media, T-Shirt, Video Edit, Motion','Udemy · Aug 24, 2024','https://www.udemy.com/certificate/UC-e007beda-e004-4a67-9aab-219bb8beac47/')">
+          <img src="Canva Masterclass.jpg" alt="Canva Masterclass Certificate"
+               onerror="this.parentElement.classList.add('no-img'); this.style.display='none'; this.parentElement.innerHTML += '🤖';">
+          <span class="zoom-hint">View Full</span>
+          <span class="cert-issuer-badge">Udemy</span>
+        </div>
+        <div class="cert-body">
+          <div class="cert-category">Degree Program</div>
+          <div class="cert-title">Canva Masterclass: Social Media, T-Shirt, Video Edit, Motion</div>
+          <div class="cert-meta">Awarded August 24, 2024</div>
+          <div class="cert-footer">
+            <a href="https://www.udemy.com/certificate/UC-e007beda-e004-4a67-9aab-219bb8beac47/" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+            <span class="cert-verified-chip">Verified</span>
+          </div>
+        </div>
+      </div>
+
+       <div class="cert-card reveal">
+        <div class="cert-banner" onclick="openLightbox('cert-ai-img','Professional Project Based Graphics Design & Video Editing','Udemy · Aug 23, 2024','https://www.udemy.com/certificate/UC-e328da95-9044-4e16-8e19-0919d64427cf/')">
+          <img src="Graphics Design & Video Editing.jpg" alt="Graphics Design & Video Editing Certificate"
+               onerror="this.parentElement.classList.add('no-img'); this.style.display='none'; this.parentElement.innerHTML += '🤖';">
+          <span class="zoom-hint">View Full</span>
+          <span class="cert-issuer-badge">Udemy</span>
+        </div>
+        <div class="cert-body">
+          <div class="cert-category">Degree Program</div>
+          <div class="cert-title">Graphics Design & Video Editing</div>
+          <div class="cert-meta">Awarded August 23, 2024</div>
+          <div class="cert-footer">
+            <a href="https://www.udemy.com/certificate/UC-e328da95-9044-4e16-8e19-0919d64427cf/" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+            <span class="cert-verified-chip">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-banner" onclick="openLightbox('cert-ai-img','Strategies for Successful Online Learning','e-SHE Portal · January 6, 2025','https://courses.ethernet.edu.et/')">
+          <img src="university-specific courses.jpg" alt="Graphics Design & Video Editing Certificate"
+               onerror="this.parentElement.classList.add('no-img'); this.style.display='none'; this.parentElement.innerHTML += '🤖';">
+          <span class="zoom-hint">View Full</span>
+          <span class="cert-issuer-badge">e-SHE Portal</span>
+        </div>
+        <div class="cert-body">
+          <div class="cert-category">Success Suite Courses 1/8</div>
+          <div class="cert-title">Strategies for Successful Online Learning</div>
+          <div class="cert-meta">January 6, 2025</div>
+          <div class="cert-footer">
+            <a href="javascript:void(0)" class="cert-verify" onclick="showNotification('e-SHE')">Verify →</a>
+            <span class="cert-verified-chip">Verified</span>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </section>
     <!-- LIGHTBOX -->
@@ -1333,6 +1405,10 @@
     case 'review':
       prefix = "//REVIEW:";
       message = "Finalizing documentation and security patches before public release.";
+      break;
+    case 'e-SHE':
+      prefix = "//e-SHE PORTAL:";
+      message = "This certificate is issued by the university's e-SHE portal. You can verify it through the university.";
       break;
     default:
       message = "This project details will be available shortly.";
