@@ -1266,6 +1266,27 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
+    // Lightbox
+    function openLightbox(imgId, title, meta, verifyUrl) {
+      const lb = document.getElementById('certLightbox');
+      // Find the image src from the clicked card's img
+      const card = event.currentTarget;
+      const img = card.querySelector('img');
+      const src = img ? img.src : '';
+      document.getElementById('lbImg').src = src;
+      document.getElementById('lbImg').alt = title;
+      document.getElementById('lbTitle').textContent = title;
+      document.getElementById('lbMeta').textContent = meta;
+      document.getElementById('lbVerify').href = verifyUrl;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('certLightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
     // Skill bar animation
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
