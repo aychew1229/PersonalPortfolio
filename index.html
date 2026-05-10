@@ -420,6 +420,8 @@
       font-size: 3.5rem;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 12px 32px rgba(59,130,246,0.4);
+      animation: float 3s ease-in-out infinite;
     }
     .project-thumb::after {
       content: '';
@@ -427,6 +429,11 @@
       inset: 0;
       background: linear-gradient(to bottom, transparent 50%, var(--card) 100%);
     }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+   }
+    
     .project-body { padding: 1.5rem; }
     .project-type {
       font-size: 0.65rem;
