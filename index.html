@@ -766,57 +766,253 @@
     }
     .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-    /* ─── FOOTER ─── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.72rem;
-      letter-spacing: 0.05em;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-    footer span { color: var(--accent); }
+    
+/* ─── FOOTER ─── */
+footer {
+border-top: none;
+padding: 0;
+display: block;
+color: var(--muted);
+font-size: 0.72rem;
+}
 
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── CURSOR GLOW ─── */
-    .cursor-glow {
-      position: fixed;
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      background: radial-gradient(circle, rgba(0,229,160,0.04) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s linear;
-    }
+/* ─── CURSOR GLOW ─── */
+.cursor-glow {
+position: fixed;
+width: 300px; height: 300px;
+border-radius: 50%;
+pointer-events: none;
+z-index: 0;
+background: radial-gradient(circle, rgba(0,229,160,0.04) 0%, transparent 70%);
+transform: translate(-50%, -50%);
+transition: transform 0.1s linear;
+}
+
+/* Footer modernized below */
+
+/* ─── MODERNIZED FOOTER CSS ─── */
+.footer-beam {
+width: 100%;
+height: 1px;
+background: linear-gradient(90deg, transparent 0%, var(--accent) 30%, var(--accent2) 70%, transparent 100%);
+position: relative;
+overflow: hidden;
+}
+.footer-beam::after {
+content: '';
+position: absolute;
+top: 0; left: -60%;
+width: 60%; height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+animation: beamSweep 3s ease-in-out infinite;
+}
+@keyframes beamSweep {
+0% { left: -60%; }
+100% { left: 140%; }
+}
+
+footer {
+border-top: none;
+padding: 0;
+position: relative;
+background: linear-gradient(180deg, var(--bg) 0%, #080810 100%);
+overflow: hidden;
+}
+footer::before {
+content: '';
+position: absolute;
+width: 600px; height: 600px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(0,229,160,0.04) 0%, transparent 70%);
+top: -200px; left: -100px;
+pointer-events: none;
+}
+footer::after {
+content: '';
+position: absolute;
+width: 400px; height: 400px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(124,107,255,0.05) 0%, transparent 70%);
+bottom: -100px; right: 0;
+pointer-events: none;
+}
+
+.footer-inner {
+position: relative;
+z-index: 1;
+max-width: 1500px;
+margin: 0 auto;
+padding: 4rem 5% 2.5rem;
+}
+
+.footer-top {
+display: grid;
+grid-template-columns: 1fr 1.6fr;
+gap: 4rem;
+margin-bottom: 3rem;
+}
+@media (max-width: 768px) {
+.footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.footer-logo {
+font-family: 'Syne', sans-serif;
+font-weight: 800;
+font-size: 2rem;
+color: var(--text);
+text-decoration: none;
+letter-spacing: -0.04em;
+display: inline-block;
+margin-bottom: 1rem;
+transition: color 0.2s;
+}
+.footer-logo span { color: var(--accent); }
+.footer-logo:hover { color: var(--accent); }
+
+.footer-tagline {
+color: var(--muted);
+font-size: 0.82rem;
+line-height: 1.7;
+margin-bottom: 1.4rem;
+}
+
+.footer-status {
+display: inline-flex;
+align-items: center;
+gap: 0.55rem;
+border: 1px solid rgba(0,229,160,0.25);
+background: rgba(0,229,160,0.04);
+color: var(--accent);
+font-size: 0.68rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 0.4rem 0.9rem;
+border-radius: 100px;
+}
+.status-dot {
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(--accent);
+animation: pulse 2s ease infinite;
+flex-shrink: 0;
+}
+
+.footer-nav-cols {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2rem;
+}
+@media (max-width: 540px) {
+.footer-nav-cols { grid-template-columns: 1fr 1fr; }
+}
+
+.footer-col {
+display: flex;
+flex-direction: column;
+gap: 0.6rem;
+}
+.footer-col-label {
+font-family: 'Syne', sans-serif;
+font-size: 0.65rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 0.5rem;
+font-weight: 700;
+}
+.footer-col a {
+color: var(--muted);
+text-decoration: none;
+font-size: 0.78rem;
+transition: color 0.2s, transform 0.2s;
+display: inline-block;
+line-height: 1.5;
+}
+.footer-col a:hover {
+color: var(--text);
+transform: translateX(3px);
+}
+
+.footer-divider {
+display: flex;
+align-items: center;
+gap: 1rem;
+margin-bottom: 2rem;
+}
+.footer-divider-line {
+flex: 1;
+height: 1px;
+background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+.footer-divider-icon {
+width: 36px; height: 36px;
+border: 1px solid var(--border);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+background: var(--card);
+animation: spin 12s linear infinite;
+}
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+
+.footer-bottom {
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.footer-copy {
+font-size: 0.72rem;
+color: var(--muted);
+letter-spacing: 0.03em;
+}
+.footer-copy-accent { color: var(--accent); }
+.footer-meta {
+font-size: 0.7rem;
+color: var(--muted);
+}
+.footer-built { letter-spacing: 0.02em; }
+
+.footer-top-btn {
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+background: var(--card);
+border: 1px solid var(--border);
+color: var(--muted);
+font-family: 'DM Mono', monospace;
+font-size: 0.7rem;
+padding: 0.5rem 1rem;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.2s;
+letter-spacing: 0.05em;
+}
+.footer-top-btn:hover {
+border-color: var(--accent);
+color: var(--accent);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(0,229,160,0.15);
+}
   
-  footer { border-top: 1px solid var(--border); 
-          padding: 3rem 5%; 
-          display: flex; 
-          flex-direction: column; 
-          justify-content: center; 
-          align-items: center; 
-          color: var(--muted); 
-          font-size: 0.75rem; 
-          text-align: center; 
-          gap: 1rem; 
-    }
-
   /* Custom Popup (Toast) Styling */
 .toast-msg {
   position: fixed;
@@ -1337,10 +1533,71 @@
     </div>
   </section>
  
-  <!-- FOOTER -->
-  <footer>
-    <div>ECE Student · DTU · <span>©️Copyright 2025</span></div>
-  </footer>
+
+<!-- FOOTER -->
+<footer>
+<!-- Animated top border beam -->
+<div class="footer-beam"></div>
+
+<div class="footer-inner">
+<!-- Top row: brand + tagline + nav links -->
+<div class="footer-top">
+<div class="footer-brand">
+<a href="#hero" class="footer-logo">AM<span>.</span></a>
+<p class="footer-tagline">Building real-world solutions from Debre Tabor, Ethiopia 🇪🇹</p>
+<div class="footer-status">
+<span class="status-dot"></span>
+Available for opportunities
+</div>
+</div>
+
+<div class="footer-nav-cols">
+<div class="footer-col">
+<div class="footer-col-label">Navigate</div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#certificates">Certificates</a>
+<a href="#contact">Contact</a>
+</div>
+<div class="footer-col">
+<div class="footer-col-label">Connect</div>
+<a href="https://github.com/aychew1229" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/aychew-m12" target="_blank">LinkedIn</a>
+<a href="https://t.me/Aychew12" target="_blank">Telegram</a>
+<a href="https://youtube.com/@AMTUBE12" target="_blank">YouTube</a>
+<a href="https://x.com/AychewM19931" target="_blank">Twitter</a>
+</div>
+<div class="footer-col">
+<div class="footer-col-label">Contact</div>
+<a href="mailto:aychewmisganew00@gmail.com">aychewmisganew00@gmail.com</a>
+<a href="mailto:robelmisganew02@gmail.com" style="margin-top:0.3rem;">robelmisganew02@gmail.com</a>
+</div>
+</div>
+</div>
+
+<!-- Divider with circuit line art -->
+<div class="footer-divider">
+<div class="footer-divider-line"></div>
+<div class="footer-divider-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+</div>
+<div class="footer-divider-line"></div>
+</div>
+
+<!-- Bottom row: copyright + back to top -->
+<div class="footer-bottom">
+<div class="footer-copy">
+<span class="footer-copy-accent">©</span> 2025–<span id="footerYear"></span> Aychew Misganew ·
+<span class="footer-copy-accent">ECE</span> Student · Debre Tabor University
+</div>
+<button class="footer-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+Top
+</button>
+</div>
+</div>
+</footer>
 
   <script>
     // Mobile nav
@@ -1487,6 +1744,9 @@
       });
     });
   }
+</script>
+  <script>
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
