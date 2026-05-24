@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portfolio-v1.5';
+const CACHE_NAME = 'portfolio-v1.6';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -13,6 +13,7 @@ const ASSETS_TO_CACHE = [
   './Canva Masterclass.jpg',
   './Graphics Design & Video Editing.jpg',
   './university-specific courses.jpg',
+  'https://cdn-icons-png.flaticon.com/512/1999/1999625.png' ,
   'https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap'
 ];
 
