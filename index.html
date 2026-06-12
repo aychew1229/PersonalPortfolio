@@ -2060,33 +2060,36 @@ Top
   <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      // Append a timestamp parameter to force browsers to skip local HTTP headers during checks
-      navigator.serviceWorker.register('./sw.js?v=' + Date.now()).then(reg => {
+      // Register sw.js normally without dynamic time-stamp queries to avoid loop triggers
+      navigator.serviceWorker.register('./sw.js').then(reg => {
         console.log('SW registered successfully');
 
-        // Check for updates manually at regular intervals or page visibility switches
-        setInterval(() => {
-          reg.update();
-        }, 1000 * 60 * 5); // Check for code updates every 5 minutes
+        // Check if there is an updated service worker already waiting in the background
+        if (reg.waiting) {
+          reg.waiting.postMessage({ action: 'skipWaiting' });
+        }
 
+        // Listen for new installations appearing while the user is browsing
         reg.addEventListener('updatefound', () => {
           const newWorker = reg.installing;
           newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              console.log('New content detected. Activating updates...');
-              // Post skipWaiting command manually to shake off the hanging state
-              newWorker.postMessage({ action: 'skipWaiting' });
+            // ONLY trigger skipWaiting once the new worker is completely installed
+            if (newWorker.state === 'installed') {
+              if (navigator.serviceWorker.controller) {
+                console.log('New update available. Upgrading version...');
+                newWorker.postMessage({ action: 'skipWaiting' });
+              }
             }
           });
         });
       }).catch(err => console.error('SW Registration Failed:', err));
 
-      // Handle controller changes (tells the page to reload when the new SW takes over)
+      // This event fires safely when self.skipWaiting() runs and activates the new controller
       let refreshing = false;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (!refreshing) {
-          window.location.reload();
           refreshing = true;
+          window.location.reload();
         }
       });
     });
