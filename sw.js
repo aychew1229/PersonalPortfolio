@@ -25,10 +25,10 @@ self.addEventListener('install', (event) => {
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );
-  self.skipWaiting(); // Forces the waiting service worker to become active
+  // Do not put self.skipWaiting() here by itself, wait for the HTML message signal
 });
 
-// Activate: Clean up old versions of the cache
+// Activate: Clean up old versions of the cache and claim open clients
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -41,21 +41,13 @@ self.addEventListener('activate', (event) => {
         })
       );
     }).then(() => {
-      // Force the newly updated service worker to take control of all open pages immediately
+      // Force control over all open tabs instantly without requiring a manual click
       return self.clients.claim();
     })
   );
 });
 
-// Fetch: Serve from cache, fallback to network
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
-});
-// Listen for manual bypass messages sent from the main window interface
+// Handle incoming message signals from your HTML page safely
 self.addEventListener('message', (event) => {
   if (event.data && event.data.action === 'skipWaiting') {
     self.skipWaiting();
