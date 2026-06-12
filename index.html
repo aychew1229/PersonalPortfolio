@@ -2004,37 +2004,6 @@ Top
   <span class="toast-accent">//NOTICE:</span>
   <span class="toast-content">Default message text.</span>
 </div>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js').then(reg => {
-        console.log('SW registered');
-
-        // This checks if a new service worker is waiting to take over
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // New content is available; the new SW is ready.
-              // We reload the page to let the new SW take control.
-              window.location.reload();
-            }
-          });
-        });
-      });
-
-      // Handle the case where the controller changes (new SW takes over)
-      let refreshing = false;
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!refreshing) {
-          window.location.reload();
-          refreshing = true;
-        }
-      });
-    });
-  }
-</script>
   <script>
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
@@ -2085,6 +2054,41 @@ Top
         feedbackSubmitBtn.textContent = "Submit Feedback →";
         feedbackSubmitBtn.disabled = false;
       }
+    });
+  }
+</script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // Append a timestamp parameter to force browsers to skip local HTTP headers during checks
+      navigator.serviceWorker.register('./sw.js?v=' + Date.now()).then(reg => {
+        console.log('SW registered successfully');
+
+        // Check for updates manually at regular intervals or page visibility switches
+        setInterval(() => {
+          reg.update();
+        }, 1000 * 60 * 5); // Check for code updates every 5 minutes
+
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              console.log('New content detected. Activating updates...');
+              // Post skipWaiting command manually to shake off the hanging state
+              newWorker.postMessage({ action: 'skipWaiting' });
+            }
+          });
+        });
+      }).catch(err => console.error('SW Registration Failed:', err));
+
+      // Handle controller changes (tells the page to reload when the new SW takes over)
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!refreshing) {
+          window.location.reload();
+          refreshing = true;
+        }
+      });
     });
   }
 </script>
