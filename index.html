@@ -852,6 +852,135 @@
     }
     .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
     
+    /* ─── CONTACT ─── */
+#contact {
+  padding: 7rem 5%;
+  max-width: 1500px;
+  margin: 0 auto;
+  box-sizing: border-box; /* Ensures padding stays within bounds */
+  width: 100%;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  text-align: left;
+  width: 100%;
+}
+
+/* Left Side: Feedback Form Styling */
+.contact-form-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  border-radius: 16px;
+  position: relative;
+  box-sizing: border-box;
+}
+.contact-form-wrap:hover {
+  border-color: rgba(0, 229, 160, 0.3);
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  box-sizing: border-box; /* Fixes input overflow on small screens */
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 229, 160, 0.05);
+}
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Right Side: Contact Text Info Alignment */
+.contact-info-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+      text-align: center; 
+      background: var(--card);
+}
+.contact-email {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.2rem, 5vw, 2.3rem); /* Shrinks font size responsively on mobile */
+  font-style: italic;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block;
+  margin: 1.5rem 0;
+  word-break: break-all; /* Prevents long emails from pushing out layout width */
+}
+.contact-email:hover { color: var(--accent2); }
+
+.social-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap; /* Wraps social chips when screen space is thin */
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  transition: all 0.2s;
+}
+.social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+/* ─── MOBILE RESPONSIVE OVERRIDES ─── */
+@media (max-width: 992px) {
+  #contact {
+    padding: 4rem 1.5rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact-form-wrap {
+    padding: 1.5rem;
+  }
+  .contact-info-wrap {
+    text-align: center;
+    align-items: center;
+  }
+  .social-row {
+    justify-content: center;
+  }
+}
 /* ─── FOOTER ─── */
 footer {
 border-top: none;
@@ -1691,7 +1820,7 @@ box-shadow: 0 6px 20px rgba(0,229,160,0.15);
     </div>
     </div>
   </section>
- 
+  
 <!-- FOOTER -->
 <footer>
 <!-- Animated top border beam -->
