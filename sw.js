@@ -33,12 +33,18 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            console.log('Removing old cache:', key);
+            return caches.delete(key);
+          }
+        })
       );
+    }).then(() => {
+      // Force the newly updated service worker to take control of all open pages immediately
+      return self.clients.claim();
     })
   );
-  // Ensure the new SW takes control of the page immediately
-  self.clients.claim(); 
 });
 
 // Fetch: Serve from cache, fallback to network
@@ -48,4 +54,10 @@ self.addEventListener('fetch', (event) => {
       return response || fetch(event.request);
     })
   );
+});
+// Listen for manual bypass messages sent from the main window interface
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });
