@@ -58,6 +58,6 @@ A high-performance, aesthetically driven professional portfolio engineered to sh
 
 ## 👤 Author
 
-**Aman Misganew ** *Electrical and Computer Engineering @ DTU*
+**Aychew M. ** *Electrical and Computer Engineering @ DTU*
 
 *Developed with ❤️ for the Ethiopian Tech Community. © 2026*
