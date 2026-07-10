@@ -10,7 +10,7 @@ A high-performance, aesthetically driven professional portfolio engineered to sh
 #Aman Misganew
 ##
 
-**[Launch Live Portfolio 🚀](https://aychew1229.github.io/PersonalPortfolio/)**
+**[Launch Live Portfolio 🚀](https://aychew1229.github.io)**
 
 ---
 
